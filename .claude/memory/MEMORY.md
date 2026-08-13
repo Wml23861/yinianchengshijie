@@ -1,3 +1,4 @@
+- [project-state-and-decisions](project-state-and-decisions.md) — 项目进度(25/50)、关键决定(不签约番茄)、下一步(第26章)
 - [novel-tracking-update-rule](novel-tracking-update-rule.md) — 创作后必更：README进度+章节行、对境库追踪表
 - [writing-no-sudden-pattern](writing-no-sudden-pattern.md) — 禁用"忽然想起/觉得/懂了/发现"，用场景因果链替代
 - [chapter-post-creation-checklist](chapter-post-creation-checklist.md) — 每章完成后的完整检查清单：追踪文件、对境记录、人物档案
