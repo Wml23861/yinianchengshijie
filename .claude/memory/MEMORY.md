@@ -1,0 +1,6 @@
+- [novel-tracking-update-rule](novel-tracking-update-rule.md) — 创作后必更：README进度+章节行、对境库追踪表
+- [writing-no-sudden-pattern](writing-no-sudden-pattern.md) — 禁用"忽然想起/觉得/懂了/发现"，用场景因果链替代
+- [chapter-post-creation-checklist](chapter-post-creation-checklist.md) — 每章完成后的完整检查清单：追踪文件、对境记录、人物档案
+- [continuous-improvement](continuous-improvement.md) — 大纲规划是活的，随创作推进不断更新
+- [full-review-on-edit](full-review-on-edit.md) — 正文任何修改后必须逐句审查整章：破折号、三连碎句、标点呼吸
+- [writing-iron-rules](writing-iron-rules.md) — 正文写作铁律：标点零容忍、段落不超10行、冗余零容忍、数字严谨、去AI痕迹，不为固步自封
