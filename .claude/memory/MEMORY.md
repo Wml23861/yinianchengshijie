@@ -6,3 +6,5 @@
 - [full-review-on-edit](full-review-on-edit.md) — 正文任何修改后必须逐句审查整章
 - [writing-iron-rules](writing-iron-rules.md) — 正文写作铁律：标点/段落/冗余/数字/去AI痕迹
 - [no-flattery-direct-critique](no-flattery-direct-critique.md) — 最高要求：不奉承、直接指出问题、控制五件事
+- [highest-creative-vow](highest-creative-vow.md) — 最高创作愿：先渡己、不居高临下、不教人、只写下走过的路
+- [chapter-creation-and-review-flow](chapter-creation-and-review-flow.md) — 每章创作+审查+记录流程，保证千万字连贯
