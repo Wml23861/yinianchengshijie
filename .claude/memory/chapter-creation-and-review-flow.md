@@ -11,7 +11,7 @@ metadata:
 
 ## 创作前（先读，不靠记忆）
 
-1. 读 [[highest-creative-vow]]（最高创作愿）+ writing-iron-rules（铁律）。
+1. 读 [[highest-creative-vow]]（最高创作愿）+ writing-iron-rules（铁律）+ 根目录《人类作者写作原则.txt》《Claude_Code_人类化小说写作规则.md》（人类化写作核心）。
 2. 读前一章正文（知道上一章写到哪、结尾钩子是什么）。
 3. 读 24_章节索引系统（前一章登记：人物、事件、伏笔、对境）。
 4. 读 30_章节问题记录（之前出现过什么问题，避免重犯）。
