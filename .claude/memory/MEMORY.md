@@ -8,3 +8,4 @@
 - [no-flattery-direct-critique](no-flattery-direct-critique.md) — 最高要求：不奉承、直接指出问题、控制五件事
 - [highest-creative-vow](highest-creative-vow.md) — 最高创作愿：先渡己、不居高临下、不教人、只写下走过的路
 - [chapter-creation-and-review-flow](chapter-creation-and-review-flow.md) — 每章创作+审查+记录流程，保证千万字连贯
+- [common-mistakes-checklist](common-mistakes-checklist.md) — 创作常见错误清单（第1-5章踩过的雷区）
