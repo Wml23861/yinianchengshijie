@@ -9,3 +9,5 @@
 - [highest-creative-vow](highest-creative-vow.md) — 最高创作愿：先渡己、不居高临下、不教人、只写下走过的路
 - [chapter-creation-and-review-flow](chapter-creation-and-review-flow.md) — 每章创作+审查+记录流程，保证千万字连贯
 - [common-mistakes-checklist](common-mistakes-checklist.md) — 创作常见错误清单（第1-5章踩过的雷区）
+- [no-autonomous-git-commit](no-autonomous-git-commit.md) — 只有用户明确说"提交/上传"才 commit/push，绝不自主提交
+- [reviewer-role-and-handoff](reviewer-role-and-handoff.md) — 审核者B身份+双会话交接协议（A写正文/B只审核，换会话怎么接手）
