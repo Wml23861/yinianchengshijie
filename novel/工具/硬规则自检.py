@@ -39,6 +39,25 @@ def check(path):
     if r['半角引号'] > 0: fails.append(f"半角引号 {r['半角引号']}>0")
     if r['全角左'] != r['全角右']: fails.append(f"全角引号不成对 {r['全角左']}≠{r['全角右']}")
     if r['半角标点'] > 0: fails.append(f"半角标点 {r['半角标点']}>0")
+    # 连续句号铁律（最高优先级，见 CLAUDE.md 第五十一条附）：
+    # ① 一个自然段句末符（。？！…）最多 3 个（含对话引号内，与段落自检.sh 一致）；
+    # ② 单句逗号（，）最多 3 个（含对话引号内）；
+    # ③ 叙述中禁止「短句。+ 后句」的碎片化断句（对话引号内不参与③）。
+    for ln, line in enumerate(lines[1:], start=2):
+        if not line.strip():
+            continue
+        n_sent = len(re.findall(r'[。？！…]', line))
+        if n_sent > 3:
+            fails.append(f"段落句号超3（第{ln}行 {n_sent}个）")
+        for sent in re.split(r'[。？！…]', line):
+            if sent.count('，') > 3:
+                fails.append(f"单句逗号超3（第{ln}行 {sent.count('，')}个）")
+        narr = re.sub(r'“[^”]*”', '', line)
+        sents = [s for s in re.split(r'[。？！…]', narr) if s.strip()]
+        for s in sents[:-1]:
+            ss = s.strip()
+            if not re.search(r'[，、：]', ss) and len(ss) <= 10:
+                fails.append(f"碎片化断句（第{ln}行「{ss[:12]}」后接句号）")
     return r, fails, warns
 
 def main():
