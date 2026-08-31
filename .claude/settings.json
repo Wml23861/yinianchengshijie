@@ -1,8 +1,20 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python 硬规则自检.py \"21_第二十一章_色相侯.md\")",
-      "Bash(python 硬规则自检.py \"22_第二十二章_身体的账本.md\")"
+      "Bash(python 硬规则自检.py)",
+      "Bash(python 硬规则自检.py:*)",
+      "Bash(python \"硬规则自检.py\")",
+      "Bash(python \"硬规则自检.py\":*)",
+      "Bash(python - <<*)",
+      "Bash(python -c *)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(find:*)"
     ]
   }
 }
