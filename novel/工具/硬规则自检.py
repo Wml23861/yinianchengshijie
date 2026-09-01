@@ -25,6 +25,7 @@ def check(path):
     r['全角左'] = body.count('\u201c')
     r['全角右'] = body.count('\u201d')
     r['半角标点'] = len(re.findall(r'[,.;:!?]', body))
+    r['方头括号'] = body.count('「') + body.count('」')
     r['忽然类'] = len(re.findall(r'忽然|这一刻|仿佛|真正的|原来', body))
     r['缓缓类'] = len(re.findall(r'缓缓|轻轻|静静|慢慢', body))
     r['越越'] = len(re.findall(r'越.{0,3}越', body))
@@ -39,6 +40,7 @@ def check(path):
     if r['半角引号'] > 0: fails.append(f"半角引号 {r['半角引号']}>0")
     if r['全角左'] != r['全角右']: fails.append(f"全角引号不成对 {r['全角左']}≠{r['全角右']}")
     if r['半角标点'] > 0: fails.append(f"半角标点 {r['半角标点']}>0")
+    if r['方头括号'] > 0: fails.append(f"方头括号「」{r['方头括号']}>0（禁用做引号，见52手册§3）")
     # 连续句号铁律（最高优先级，见 CLAUDE.md 第五十一条附）：
     # ① 一个自然段句末符（。？！…）最多 3 个（含对话引号内，与段落自检.sh 一致）；
     # ② 单句逗号（，）最多 3 个（含对话引号内）；
@@ -46,6 +48,14 @@ def check(path):
     for ln, line in enumerate(lines[1:], start=2):
         if not line.strip():
             continue
+        # 52 手册格式检测（2026-09-01 硬关化）
+        # A. 段首是句号
+        if line.startswith('。'):
+            fails.append(f"段首是句号（第{ln}行，见52手册§2.1）")
+        # B. 对话未独立成段：一行 ≥3 对全角""（6 个引号 = 3 句对话挤一行）
+        n_quotes = line.count('“') + line.count('”')
+        if n_quotes >= 6:
+            fails.append(f"对话未独立成段（第{ln}行，{n_quotes//2}对引号挤一行，见52手册§1.1）")
         n_sent = len(re.findall(r'[。？！…]', line))
         if n_sent > 3:
             fails.append(f"段落句号超3（第{ln}行 {n_sent}个）")
@@ -93,7 +103,8 @@ def main():
         name = os.path.basename(f)
         print(f"{name}")
         print(f"  字数={r['字数']} 汉字={r['汉字']} 破折号={r['破折号']} 英文={r['英文']} "
-              f"半角引号={r['半角引号']} 全角“{r['全角左']}/”{r['全角右']} 半角标点={r['半角标点']}")
+              f"半角引号={r['半角引号']} 全角“{r['全角左']}/”{r['全角右']} 半角标点={r['半角标点']} "
+              f"方头括号={r['方头括号']}")
         print(f"  忽然类={r['忽然类']} 缓缓类={r['缓缓类']} 越越={r['越越']} 不是X是Y={r['不是X是Y']}")
         for w in warns: print(f"  [警告] {w}")
         if fails:
