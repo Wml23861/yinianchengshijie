@@ -58,6 +58,20 @@ def check(path):
             ss = s.strip()
             if not re.search(r'[，、：]', ss) and len(ss) <= 10:
                 fails.append(f"碎片化断句（第{ln}行「{ss[:12]}」后接句号）")
+        # 对话形式检测：禁止"X说……X说……X说"连用 3+ 次
+        # 一段内"说"动词出现 ≥3 次且无任何"问/答/嗯/停/没接/想了一下/抬头/低头/笑/摇头"等打断 → 警告
+        if '说' in line:
+            says = len(re.findall(r'(?:明心|老人|女人|老头|母亲|父亲|明心她妈|她妈|小刘|小吴|他|她|小伙子|老头儿)[^，。、；：？！]*?说', line))
+            if says >= 4:
+                warns.append(f"对话「说」动词过密（第{ln}行 {says}次，建议加动作/停顿/非'说'动词，见CLAUDE.md卷五·七）")
+            if says >= 3:
+                breakers = ['问', '答', '嗯', '停', '没接', '想了一下', '抬头', '低头', '笑', '摇头', '喊', '催', '嘀咕', '重复', '插嘴', '岔开', '追问']
+                if not any(b in line for b in breakers):
+                    warns.append(f"对话「说」连用无打断（第{ln}行 {says}次，需加动作/停顿/非'说'动词，见CLAUDE.md卷五·七）")
+    # 上下文一致性检测：父母住址（CLAUDE.md卷五·八）
+    # 已确立：明心父母住在老家，不在城里
+    if re.search(r'我妈在城南|我妈在城西|我妈在城北|我妈在城东|他父母在城南|他父母在城西|他父母在城北|他父母在城东', body):
+        fails.append("父母住址与设定矛盾（父母在老家，不在城里，见CLAUDE.md卷五·八）")
     return r, fails, warns
 
 def main():
