@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Snapshots (user data)
+.snapshots/
+
+# Skill evolution artifacts (local only, not shipped)
+plugins/vibe-noveling/evals/shared/fixtures/
+plugins/vibe-noveling/experiments/
+
+# Local dev artifacts
+evals/
+experiments/
+targets/
+
+# Environment
+.env
+.env.local
+
+# Claude Code
+.claude/
+.omc/
